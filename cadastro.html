@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo usuário</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+        
+</head>
+<body>
+
+    <section>
+      <form action="salva.php" method="post">
+        <div class="row mb-3">
+          <label for="inputNome" class="col-sm-2 col-form-label">Nome completo:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputNome" name="nome" required>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputEmail" class="col-sm-2 col-form-label">E-mail:</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail" name="email" required>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputDataNascimento" class="col-sm-2 col-form-label">Data de nascimento:</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" id="inputDataNascimento" name="dataNascimento" required>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputCEP" class="col-sm-2 col-form-label">CEP:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCEP" name="cep" onblur="buscarCEP()" maxlength="8" required>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputEndereco" class="col-sm-2 col-form-label">Endereço:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEndereco" name="endereco">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputBairro" class="col-sm-2 col-form-label">Bairro:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputBairro" name="bairro">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputCidade" class="col-sm-2 col-form-label">Cidade:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCidade" name="cidade">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputEstado" class="col-sm-2 col-form-label">Estado:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEstado" name="estado">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputNumero" class="col-sm-2 col-form-label">Número:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputNumero" name="numero" required>
+          </div>
+        </div>
+
+        <fieldset class="sexo-interesse-group mb-3">
+          <legend>Sexo:</legend>
+          <div class="form-check-group">
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="sexo" id="sexoMasculino" value="Masculino" checked required>
+                  <label class="form-check-label" for="sexoMasculino">Masculino</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="sexo" id="sexoFeminino" value="Feminino">
+                  <label class="form-check-label" for="sexoFeminino">Feminino</label>
+              </div>
+          </div>
+      </fieldset>
+
+      <div class="interesses-group mb-3">
+        <label class="form-label">Interesses:</label>
+        <div class="form-check-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="interessePraia" name="interesses[]" value="Praia">
+                <label class="form-check-label" for="interessePraia">Praia</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="interesseCampo" name="interesses[]" value="Campo">
+                <label class="form-check-label" for="interesseCampo">Campo</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="interesseNacionais" name="interesses[]" value="Nacionais">
+                <label class="form-check-label" for="interesseNacionais">Nacionais</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="interesseInternacionais" name="interesses[]" value="Internacionais">
+                <label class="form-check-label" for="interesseInternacionais">Internacionais</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="interesseSerra" name="interesses[]" value="Serra">
+                <label class="form-check-label" for="interesseSerra">Serra</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="interesseCidade" name="interesses[]" value="Cidade">
+                <label class="form-check-label" for="interesseCidade">Cidade</label>
+            </div>
+        </div>
+      </div>
+
+        <button type="submit" id="botaoSalvar" class="btn btn-primary">Salvar</button>
+        <button type="reset" class="btn btn-secondary">Limpar</button>
+      </form>
+    </section>
+
+</body>
+</html>
