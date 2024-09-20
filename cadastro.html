@@ -3,126 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novo usuário</title>
+    <title>Novo Usuário</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-        
 </head>
 <body>
 
-    <section>
-      <form action="salva.php" method="post">
+<section>
+    <form action="salva.php" method="post">
         <div class="row mb-3">
-          <label for="inputNome" class="col-sm-2 col-form-label">Nome completo:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputNome" name="nome" required>
-          </div>
+            <label for="inputNome" class="col-sm-2 col-form-label">Nome completo:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputNome" name="nome" required autocomplete="name">
+            </div>
         </div>
 
         <div class="row mb-3">
-          <label for="inputEmail" class="col-sm-2 col-form-label">E-mail:</label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail" name="email" required>
-          </div>
+            <label for="inputEmail" class="col-sm-2 col-form-label">E-mail:</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail" name="email" required autocomplete="email">
+                <div id="mensagemEmail" class="text-danger"></div> <!-- Mensagem de erro -->
+            </div>
         </div>
 
         <div class="row mb-3">
-          <label for="inputDataNascimento" class="col-sm-2 col-form-label">Data de nascimento:</label>
-          <div class="col-sm-10">
-            <input type="date" class="form-control" id="inputDataNascimento" name="dataNascimento" required>
-          </div>
+            <label for="inputDataNascimento" class="col-sm-2 col-form-label">Data de nascimento:</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="inputDataNascimento" name="dataNascimento" required autocomplete="bday">
+            </div>
         </div>
 
         <div class="row mb-3">
-          <label for="inputCEP" class="col-sm-2 col-form-label">CEP:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputCEP" name="cep" onblur="buscarCEP()" maxlength="8" required>
-          </div>
+            <label for="inputCEP" class="col-sm-2 col-form-label">CEP:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputCEP" name="cep" onblur="buscarCEP()" maxlength="8" required autocomplete="postal-code">
+            </div>
         </div>
 
         <div class="row mb-3">
-          <label for="inputEndereco" class="col-sm-2 col-form-label">Endereço:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputEndereco" name="endereco">
-          </div>
+            <label for="inputEndereco" class="col-sm-2 col-form-label">Endereço:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputEndereco" name="endereco" autocomplete="address-line1">
+            </div>
         </div>
 
         <div class="row mb-3">
-          <label for="inputBairro" class="col-sm-2 col-form-label">Bairro:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputBairro" name="bairro">
-          </div>
+            <label for="inputBairro" class="col-sm-2 col-form-label">Bairro:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputBairro" name="bairro" autocomplete="address-level2">
+            </div>
         </div>
 
         <div class="row mb-3">
-          <label for="inputCidade" class="col-sm-2 col-form-label">Cidade:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputCidade" name="cidade">
-          </div>
+            <label for="inputCidade" class="col-sm-2 col-form-label">Cidade:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputCidade" name="cidade" autocomplete="address-level1">
+            </div>
         </div>
 
         <div class="row mb-3">
-          <label for="inputEstado" class="col-sm-2 col-form-label">Estado:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputEstado" name="estado">
-          </div>
+            <label for="inputEstado" class="col-sm-2 col-form-label">Estado:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputEstado" name="estado" autocomplete="address-level1">
+            </div>
         </div>
 
         <div class="row mb-3">
-          <label for="inputNumero" class="col-sm-2 col-form-label">Número:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputNumero" name="numero" required>
-          </div>
+            <label for="inputNumero" class="col-sm-2 col-form-label">Número:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputNumero" name="numero" required autocomplete="address-line2">
+            </div>
         </div>
 
         <fieldset class="sexo-interesse-group mb-3">
-          <legend>Sexo:</legend>
-          <div class="form-check-group">
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="sexo" id="sexoMasculino" value="Masculino" checked required>
-                  <label class="form-check-label" for="sexoMasculino">Masculino</label>
-              </div>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="sexo" id="sexoFeminino" value="Feminino">
-                  <label class="form-check-label" for="sexoFeminino">Feminino</label>
-              </div>
-          </div>
-      </fieldset>
+            <legend>Sexo:</legend>
+            <div class="form-check-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sexo" id="sexoMasculino" value="Masculino" checked required>
+                    <label class="form-check-label" for="sexoMasculino">Masculino</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sexo" id="sexoFeminino" value="Feminino">
+                    <label class="form-check-label" for="sexoFeminino">Feminino</label>
+                </div>
+            </div>
+        </fieldset>
 
-      <div class="interesses-group mb-3">
-        <label class="form-label">Interesses:</label>
-        <div class="form-check-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="interessePraia" name="interesses[]" value="Praia">
-                <label class="form-check-label" for="interessePraia">Praia</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="interesseCampo" name="interesses[]" value="Campo">
-                <label class="form-check-label" for="interesseCampo">Campo</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="interesseNacionais" name="interesses[]" value="Nacionais">
-                <label class="form-check-label" for="interesseNacionais">Nacionais</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="interesseInternacionais" name="interesses[]" value="Internacionais">
-                <label class="form-check-label" for="interesseInternacionais">Internacionais</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="interesseSerra" name="interesses[]" value="Serra">
-                <label class="form-check-label" for="interesseSerra">Serra</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="interesseCidade" name="interesses[]" value="Cidade">
-                <label class="form-check-label" for="interesseCidade">Cidade</label>
+        <div class="interesses-group mb-3">
+            <label class="form-label">Interesses:</label>
+            <div class="form-check-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="interessePraia" name="interesses[]" value="Praia">
+                    <label class="form-check-label" for="interessePraia">Praia</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="interesseCampo" name="interesses[]" value="Campo">
+                    <label class="form-check-label" for="interesseCampo">Campo</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="interesseNacionais" name="interesses[]" value="Nacionais">
+                    <label class="form-check-label" for="interesseNacionais">Nacionais</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="interesseInternacionais" name="interesses[]" value="Internacionais">
+                    <label class="form-check-label" for="interesseInternacionais">Internacionais</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="interesseSerra" name="interesses[]" value="Serra">
+                    <label class="form-check-label" for="interesseSerra">Serra</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="interesseCidade" name="interesses[]" value="Cidade">
+                    <label class="form-check-label" for="interesseCidade">Cidade</label>
+                </div>
             </div>
         </div>
-      </div>
+
+        <div class="usuarioLogin">
+            <div class="row mb-3">
+                <label for="inputLogin" class="col-sm-2 col-form-label">Login:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputLogin" name="login" required autocomplete="username">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputSenha" class="col-sm-2 col-form-label">Senha:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputSenha" name="senha" required autocomplete="new-password">
+                </div>
+            </div>
+        </div>
 
         <button type="submit" id="botaoSalvar" class="btn btn-primary">Salvar</button>
         <button type="reset" class="btn btn-secondary">Limpar</button>
-      </form>
-    </section>
+    </form>
+</section>
 
 </body>
 </html>
+
+<script>
+document.getElementById('inputEmail').addEventListener('blur', function() {
+    const email = this.value;
+    const mensagemEmail = document.getElementById('mensagemEmail');
+    
+    if (email) {
+        fetch('verifica_email.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'email=' + encodeURIComponent(email),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.exists) {
+                mensagemEmail.textContent = 'Este email já está cadastrado.';
+                document.getElementById('inputEmail').value = '';
+            } else {
+                mensagemEmail.textContent = ''; 
+            }
+        })
+        .catch(error => console.error('Erro:', error));
+    }
+});
+</script>
