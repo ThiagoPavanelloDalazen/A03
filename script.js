@@ -8,7 +8,7 @@ function buscarCEP() {
 
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
         .then(response => response.json())
-        .then(data => {
+        .then(data => { 
             if (!data.erro) {
                 document.getElementById('inputEndereco').value = data.logradouro;
                 document.getElementById('inputBairro').value = data.bairro;
