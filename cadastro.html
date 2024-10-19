@@ -10,7 +10,8 @@
 <body>
 
 <section>
-    <form action="salva.php" method="post">
+
+    <form action="salva.php" method="post" enctype="multipart/form-data">
         <div class="row mb-3">
             <label for="inputNome" class="col-sm-2 col-form-label">Nome completo:</label>
             <div class="col-sm-10">
@@ -22,7 +23,7 @@
             <label for="inputEmail" class="col-sm-2 col-form-label">E-mail:</label>
             <div class="col-sm-10">
                 <input type="email" class="form-control" id="inputEmail" name="email" required autocomplete="email">
-                <div id="mensagemEmail" class="text-danger"></div> <!-- Mensagem de erro -->
+                <div id="mensagemEmail" class="text-danger"></div> 
             </div>
         </div>
 
@@ -135,6 +136,11 @@
             </div>
         </div>
 
+        <div class="upload_arquivo mb-3">
+            <label for="arquivo" class="upload_label">Selecione a foto para fazer o upload:</label>
+            <input name="foto" id="arquivo" type="file" class="upload_input" accept="image/*" />
+        </div>
+
         <button type="submit" id="botaoSalvar" class="btn btn-primary">Salvar</button>
         <button type="reset" class="btn btn-secondary">Limpar</button>
     </form>
@@ -142,30 +148,3 @@
 
 </body>
 </html>
-
-<script>
-document.getElementById('inputEmail').addEventListener('blur', function() {
-    const email = this.value;
-    const mensagemEmail = document.getElementById('mensagemEmail');
-    
-    if (email) {
-        fetch('verifica_email.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: 'email=' + encodeURIComponent(email),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.exists) {
-                mensagemEmail.textContent = 'Este email já está cadastrado.';
-                document.getElementById('inputEmail').value = '';
-            } else {
-                mensagemEmail.textContent = ''; 
-            }
-        })
-        .catch(error => console.error('Erro:', error));
-    }
-});
-</script>

@@ -44,7 +44,7 @@ function validarFormulario(event) {
     const idadeValida = hoje.getMonth() > nascimento.getMonth() || 
         (hoje.getMonth() === nascimento.getMonth() && hoje.getDate() >= nascimento.getDate());
 
-    if (idade < 18 || !idadeValida) {
+    if (idade < 18 & !idadeValida) {
         alert("Você deve ser maior de idade para se registrar.");
         event.preventDefault();
         return;
